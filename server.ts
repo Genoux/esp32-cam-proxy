@@ -12,7 +12,7 @@ const io = new SocketIOServer(server);
 const PORT = process.env.PORT || 3000;
 
 const espCameraProxy = createProxyMiddleware({
-  target: 'http://192.168.86.22:81/',
+  target: process.env.ESP32_CAM_URL,
   changeOrigin: true
 });
 
