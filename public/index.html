@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ESP32 CAM Stream</title>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const socket = io();
+            const img = document.getElementById('video-stream');
+
+            socket.on('frame', (data) => {
+                img.src = `data:image/jpeg;base64,${data}`;
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>ESP32 CAM Stream</h1>
+    <img src="http://192.168.4.1:81/view" />
+
+</body>
+</html>
